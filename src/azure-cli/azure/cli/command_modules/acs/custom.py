@@ -2059,7 +2059,6 @@ def aks_scale(cmd, client, resource_group_name, name, node_count, nodepool_name=
             agent_profile.count = int(node_count)  # pylint: disable=no-member
             # null out the SP and AAD profile because otherwise validation complains
             instance.service_principal_profile = None
-            instance.aad_profile = None
             return sdk_no_wait(no_wait, client.create_or_update, resource_group_name, name, instance)
     raise CLIError('The nodepool "{}" was not found.'.format(nodepool_name))
 
