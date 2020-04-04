@@ -2233,7 +2233,6 @@ def aks_upgrade(cmd, client, resource_group_name, name, kubernetes_version, cont
 
     # null out the SP and AAD profile because otherwise validation complains
     instance.service_principal_profile = None
-    instance.aad_profile = None
 
     return sdk_no_wait(no_wait, client.create_or_update, resource_group_name, name, instance)
 
@@ -2358,7 +2357,6 @@ def _update_addons(cmd, instance, subscription_id, resource_group_name, addons, 
 
     # null out the SP and AAD profile because otherwise validation complains
     instance.service_principal_profile = None
-    instance.aad_profile = None
 
     return instance
 
